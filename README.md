@@ -27,7 +27,7 @@ CPI (Cycles Per Instruction): 1 <br/>
 Clock period: IF_time + ID_time + EX_time + MEM_time + WB_time
 		    (long clock period, critical path: ld instruction) 
 
-In a multi-cycle processing unit each stage is executed in one cycle without pipelining. This results high CPI[one instruction 5 stages – 5 cycles] and short clock period [clock period corresponding to the longest time taken among 5 stages]. As a result execution time is going to increase and due to which performance decreases. Here one important thing to note that at each cycle, all hardware except the hardware corresponding to the stage executed in that cycle remains idle (unused).
+In a multi-cycle processing unit each stage is executed in one cycle without pipelining. This results high CPI[one instruction 5 stages – 5 cycles] and short clock period [clock period corresponding to the longest time taken among 5 stages]. As a result execution time is going to increase and due to which performance decreases. Here one important thing to note that at each cycle, all hardware except the hardware corresponding to the stage executed in that cycle remains idle (unused). <br/>
 Figure : Multicycle processing unit without pipelining. <br/>
 ![image](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/1092caa2-fae6-447a-b17a-404f6f59b6f6)
 
