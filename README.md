@@ -4,14 +4,14 @@
 
 ## Introduction to RISC-V architecture, and pipelining.
 
-#### Guiding Design principles in RISC-V ISA:
+### Guiding Design principles in RISC-V ISA:
 1) Simplicity favours regularity.
 2) Smaller is faster.
 3) Good design demands good compromises.
 
-#### What is pipelining?
+### What is pipelining?
 
-#### Why pipelining?
+### Why pipelining?
 
 Execution time = IC * CPI * T <br/>
 IC – Instruction count
@@ -34,7 +34,7 @@ Figure : Multicycle processing unit without pipelining. <br/>
 CPI : 5 <br/>
 Clock period:  max{IF_time, ID_time, EX_time, MEM_time,  WB_time}
 
-#### Stages in RISC-V pipeline:
+### Stages in RISC-V pipeline:
 Similar to MIPS architecture there are 5 stages in RISC-V ISA(Instruction Set Architecture) :
 1) IF : Instruction fetch from Instruction cache.
 2) ID : Instruction Decode and Register read.
