@@ -23,10 +23,13 @@ In a single cycle processing unit the instructions are going to be executed sequ
 Picture title: Diagram representing single cycle processing unit.
 ![image](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/565f1baa-7f5c-470f-98d9-e202809610d0)
 
-CPI: 1
+CPI (Cycles Per Instruction): 1 <br/>
 Clock period: IF_time + ID_time + EX_time + MEM_time + WB_time
 		    (long clock period, critical path: ld instruction) 
 
+In a multi-cycle processing unit each stage is executed in one cycle without pipelining. This results high CPI[one instruction 5 stages – 5 cycles] and short clock period [clock period corresponding to the longest time taken among 5 stages]. As a result execution time is going to increase and due to which performance decreases. Here one important thing to note that at each cycle, all hardware except the hardware corresponding to the stage executed in that cycle remains idle (unused).
+Figure : Multicycle processing unit without pipelining. <br/>
+![image](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/1092caa2-fae6-447a-b17a-404f6f59b6f6)
 
 #### Stages in RISC-V pipeline:
 Similar to MIPS architecture there are 5 stages in RISC-V ISA(Instruction Set Architecture) :
