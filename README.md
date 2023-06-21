@@ -13,7 +13,7 @@
 
 #### Why pipelining?
 
-Execution time = IC * CPI * T
+Execution time = IC * CPI * T <br/>
 IC – Instruction count
 CPI – Cycles Per Instruction
 T – Clock Period.
