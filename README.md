@@ -4,6 +4,39 @@
 
 ## Introduction to RISC-V architecture, and pipelining.
 
+#### Guiding Design principles in RISC-V ISA:
+1) Simplicity favours regularity.
+2) Smaller is faster.
+3) Good design demands good compromises.
+
+#### What is pipelining?
+
+#### Why pipelining?
+
+Execution time = IC * CPI * T
+IC – Instruction count
+CPI – Cycles Per Instruction
+T – Clock Period.
+
+In a single cycle processing unit the instructions are going to be executed sequentially one by one. Here CPI (Cycles Per Instruction) is low [for one instruction – one cycle] but here we are going to have a long clock period [the clock period corresponds to slowest instruction]. As a result the execution time is going to increase significantly due to long clock period, which results in less performance. This single cycle processing unit doesn’t have any benefit except its simplicity.
+
+Picture title: Diagram representing single cycle processing unit.
+![image](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/565f1baa-7f5c-470f-98d9-e202809610d0)
+
+CPI: 1
+Clock period: IF_time + ID_time + EX_time + MEM_time + WB_time
+		    (long clock period, critical path: ld instruction) 
+
+
+#### Stages in RISC-V pipeline:
+Similar to MIPS architecture there are 5 stages in RISC-V ISA(Instruction Set Architecture) :
+1) IF : Instruction fetch from Instruction cache.
+2) ID : Instruction Decode and Register read.
+3) EX: Execute Operations[eg: add, sub] (or) Calculate address[ld, sd].
+4) MEM: Access memory operands from data cache.
+5) WB: Write result back to the register in register file.
+
+
 ## Challenges for pipelining
 
 ## Pictorial view of pipelined datapath:
