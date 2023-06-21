@@ -69,3 +69,5 @@ For operand B, the similar conditions are checked as above but additionally maki
 ## Power consumption and time delay reports by vivado
 
 ## Further scope
+1) Adding additional hardware at ID stage for branch instructions to reduce the number of stalls for control Hazards (or) maintaining a branch predictor static or dynamic branch predictor.
+2) Increasing the number of stages so that on an average for many instructions the average performance can be increased significantly.
