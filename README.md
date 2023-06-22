@@ -2,16 +2,40 @@
 
 ## Problem statement
 
-## Introduction to RISC-V architecture, and pipelining.
+## Introduction to RISC-V architecture:
+RISC-V is an open-source instruction set architecture (ISA) designed for computer processors. It stands for "Reduced Instruction Set Computer - Five." The RISC-V architecture is based on the concept of reduced instruction set computing, which emphasizes simplicity and efficiency by using a smaller set of instructions.
+More specifically, RISC-V has been used in cloud computing, servers, and embedded applications.
 
 ### Guiding Design principles in RISC-V ISA:
 1) Simplicity favours regularity.
 2) Smaller is faster.
 3) Good design demands good compromises.
 
-### What is pipelining?
+## Pipelining:
 
-### Why pipelining?
+### What is pipelining?
+Pipelining is a technique where multiple sub-tasks of instructions are implemented at the same time. Pipelining allows mutiple sub‐tasks to be carried out simultaneously using independent resources(Instruction level parallelism) <br/>
+
+Let us consider a real life example of manufacturing a car, let the steps require to build a car be: <br/>
+![pic5](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/24763001-d402-4bed-8255-db61b8a09475)
+let each sub-task takes 20 minutes. <br/>
+
+Suppose at each time unit, only one sub-task can be performed then: <br/>
+![pic3](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/cda13893-9402-4668-bc74-d8107a5354fa)
+Suppose pipelining is allowed then: <br/>
+![pic4](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/a99cff10-592f-4896-a902-e6e63fb4d924)
+
+From the above pictures we can clearly see the advantage of pipelining in using the resources effeciently and thereby consuming less time. <br/>
+
+###  5-stages for implementing instruction(in general):
+Similar to MIPS architecture there are 5 stages in RISC-V ISA(Instruction Set Architecture) :
+1) IF : Instruction fetch from Instruction cache.
+2) ID : Instruction Decode and Register read.
+3) EX: Execute Operations[eg: add, sub] (or) Calculate address[ld, sd].
+4) MEM: Access memory operands from data cache.
+5) WB: Write result back to the register in register file.
+
+### Why pipelining in computer architecture?
 
 Execution time = IC * CPI * T <br/>
 IC – Instruction count
@@ -36,18 +60,13 @@ Figure : Multicycle processing unit without pipelining. <br/>
 CPI : 5 <br/>
 Clock period:  max{IF_time, ID_time, EX_time, MEM_time,  WB_time}
 
-### Stages in RISC-V pipeline:
-Similar to MIPS architecture there are 5 stages in RISC-V ISA(Instruction Set Architecture) :
-1) IF : Instruction fetch from Instruction cache.
-2) ID : Instruction Decode and Register read.
-3) EX: Execute Operations[eg: add, sub] (or) Calculate address[ld, sd].
-4) MEM: Access memory operands from data cache.
-5) WB: Write result back to the register in register file.
+### Challenges for pipelining
 
-
-## Challenges for pipelining
+## Datapath:
 
 ## Pictorial view of pipelined datapath:
+![pic6](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/8961486e-6f1c-4cd8-9818-44850725064e)
+
 
 ## Forwarding unit
 
