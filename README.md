@@ -146,7 +146,7 @@ Data-cache: <br/>
 The register  values in each cycle can be observed from the above timing diagram. pipeline_IF_ID, pipeline_ID_EX, pipeline_EX_MEM, pipeline_MEM_WB, represents the pipeline register values. data_written_in_regfile represents the data written back in the register file. data_written_in_data_mem represents the data written in the data cache. data_written_in_ins_mem represents the data written in the ins cache. <br/>
 
 
-## Power consumption and time delay reports by vivado
+## Power consumption and time delay reports from vivado
 
 ## Further scope
 1) Adding additional hardware at ID stage for branch instructions to reduce the number of stalls for control Hazards (or) maintaining a branch predictor static or dynamic branch predictor.
