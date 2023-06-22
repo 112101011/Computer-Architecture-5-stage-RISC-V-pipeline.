@@ -97,7 +97,7 @@ X10 - X11 | function arguments/results
 X12 - X17 | function arguments
 
 ### Role of immediate generator:
-![pic8](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/b7e53f0f-bb85-441d-a6b5-cac13caf92f4)
+![pic8](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/b7e53f0f-bb85-441d-a6b5-cac13caf92f4) <br/>
 This imm generator performs sign extension of 12-bit immediate to 64-bit immediate. The reason for extension is that other registers in register file are 64-bit and the ALU is designed for 64-bits. 
 
 ### Role of 64-bit ALU:
