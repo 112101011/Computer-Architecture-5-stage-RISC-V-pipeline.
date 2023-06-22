@@ -127,6 +127,9 @@ In the data path designed here the ALU is designed for 64-bits and it performs a
 ![pic7](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/c68262dc-7ae2-431e-9220-76ceca6e3cb4)
 
 ## Forwarding unit
+The forwarding unit is represented by the below block diagram but this forwarding unit can be viewed as several multiplexers placing together. The multiplexers involved  in this forwarding logic can be seen from verilog code. 
+<br/>
+![forwarding](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/9e76bd33-cd4e-44ec-a875-339fab0c1641) <br/>
 
 Forwarding unit is added in this data path to decrease the number of stalls and there by decreasing CPI and increasing performance of the processing unit.
 The forwarding unit decides the operands to be sent to the ALU. The below conditions make sure that the most recent value is forwarded. The most recent value to forward will be there in EX/MEM pipeline.
