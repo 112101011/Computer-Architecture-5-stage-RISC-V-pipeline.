@@ -132,6 +132,13 @@ Actual Number of instructions = 10 <br/>
 Stalls = 2 <br/>
 [average CPI]: CPI = (16) / (10) = 1.6 (2-stalls are not considered as instructions) <br/>
 The CPI is not 1(ideal) because some time  is required to get full pipelining. <br/>
+Analysis of timing diagram with the help of test bench written:
+
+After writing the instructions in the instruction cache and data values in data cache the scenario is: <br/>
+Instruction Cache: <br/>
+![Picture1](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/35b7198a-5ca6-45ce-abf3-a2b1a5201259) <br/>
+Data-cache: <br/>
+![Picture2](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/9f76abe9-ceb7-4125-b0c6-2356166933a8) <br/>
 
 
 ## Timing diagram:
