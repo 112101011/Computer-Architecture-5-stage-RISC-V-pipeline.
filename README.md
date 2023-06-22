@@ -62,6 +62,12 @@ Clock period:  max{IF_time, ID_time, EX_time, MEM_time,  WB_time}
 
 ### Challenges for pipelining
 
+## Goal:
+Use hardware lying as much as possible.(running instructions in parallel though there is no actual parallel hardware)
+1) Minimize the number of stalls
+2) Thereby increasing the performance.
+3) Retaining the simplicity of the hardware.
+
 ## Instruction formats in RISC-V:
 
 R-format: <br/>
