@@ -31,17 +31,17 @@ From the above pictures we can clearly see the advantage of pipelining in using 
 
 Our main motive of this project is to come close as much as possible to the actual RISC-V pipelined data path. The following features are included in this data path:
 1) Pipelined data path: which allows multiple subtasks to be carried out simultaneously  using independent resources.
-2) Important components of Data path:
-   a) 20 32-bit instruction cache. (can be increased based on requirements)
-   b) Program Counter.
-   c) Instruction decoder. (R-type, I-type, S-type)
-   d) 32 64-bit register file.
-   e) Immediate Generator.
-   f) 64-bit ALU(addition, subtraction, multiplication)
-   g) 20 64-bit Data cache. (can be increase based on requirements)
-   h) Pipeline registers(IF/ID, ID/EX, EX/MEM, MEM/WB)
-   i) Control Unit. (Generate control signals)
-   j) Forwarding unit.
+2) Important components of Data path: <br/>
+   a) 20 32-bit instruction cache. (can be increased based on requirements) <br/>
+   b) Program Counter. <br/>
+   c) Instruction decoder. (R-type, I-type, S-type) <br/>
+   d) 32 64-bit register file. <br/>
+   e) Immediate Generator. <br/>
+   f) 64-bit ALU(addition, subtraction, multiplication) <br/>
+   g) 20 64-bit Data cache. (can be increase based on requirements) <br/>
+   h) Pipeline registers(IF/ID, ID/EX, EX/MEM, MEM/WB) <br/>
+   i) Control Unit. (Generate control signals) <br/>
+   j) Forwarding unit. <br/>
 
 
 ###  5-stages for implementing instruction(in general):
