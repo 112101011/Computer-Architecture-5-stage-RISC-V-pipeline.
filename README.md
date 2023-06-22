@@ -27,23 +27,6 @@ Suppose pipelining is allowed then: <br/>
 
 From the above pictures we can clearly see the advantage of pipelining in using the resources effeciently and thereby consuming less time. <br/>
 
-### Features of this data path:
-
-Our main motive of this project is to come close as much as possible to the actual RISC-V pipelined data path. The following features are included in this data path:
-1) Pipelined data path: which allows multiple subtasks to be carried out simultaneously  using independent resources.
-2) Important components of Data path: <br/>
-   a) 20 32-bit instruction cache. (can be increased based on requirements) <br/>
-   b) Program Counter. <br/>
-   c) Instruction decoder. (R-type, I-type, S-type) <br/>
-   d) 32 64-bit register file. <br/>
-   e) Immediate Generator. <br/>
-   f) 64-bit ALU(addition, subtraction, multiplication) <br/>
-   g) 20 64-bit Data cache. (can be increase based on requirements) <br/>
-   h) Pipeline registers(IF/ID, ID/EX, EX/MEM, MEM/WB) <br/>
-   i) Control Unit. (Generate control signals) <br/>
-   j) Forwarding unit. <br/>
-
-
 ###  5-stages for implementing instruction(in general):
 Similar to MIPS architecture there are 5 stages in RISC-V ISA(Instruction Set Architecture) :
 1) IF : Instruction fetch from Instruction cache.
@@ -97,6 +80,22 @@ S-format: <br/>
 ![pic11](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/82e9c3bd-70d8-4a8a-8719-580318a9378e)
 
 ## Datapath:
+
+### Features of this data path:
+
+Our main motive of this project is to come close as much as possible to the actual RISC-V pipelined data path. The following features are included in this data path:
+1) Pipelined data path: which allows multiple subtasks to be carried out simultaneously  using independent resources.
+2) Important components of Data path: <br/>
+   a) 20 32-bit instruction cache. (can be increased based on requirements) <br/>
+   b) Program Counter. <br/>
+   c) Instruction decoder. (R-type, I-type, S-type) <br/>
+   d) 32 64-bit register file. <br/>
+   e) Immediate Generator. <br/>
+   f) 64-bit ALU(addition, subtraction, multiplication) <br/>
+   g) 20 64-bit Data cache. (can be increase based on requirements) <br/>
+   h) Pipeline registers(IF/ID, ID/EX, EX/MEM, MEM/WB) <br/>
+   i) Control Unit. (Generate control signals) <br/>
+   j) Forwarding unit. <br/>
 
 ![pic6](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/8961486e-6f1c-4cd8-9818-44850725064e)
 Note: Red wires depict the input and output of forwarding logic. The number in orange color boxes depict the number of bits. 
