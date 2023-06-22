@@ -20,8 +20,9 @@ T – Clock Period.
 
 In a single cycle processing unit the instructions are going to be executed sequentially one by one. Here CPI (Cycles Per Instruction) is low [for one instruction – one cycle] but here we are going to have a long clock period [the clock period corresponds to slowest instruction]. As a result the execution time is going to increase significantly due to long clock period, which results in less performance. This single cycle processing unit doesn’t have any benefit except its simplicity.
 
-Picture title: Diagram representing single cycle processing unit.
-![image](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/565f1baa-7f5c-470f-98d9-e202809610d0)
+Picture title: Diagram representing single cycle processing unit: <br/>
+![pic1](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/39e8201e-d7c7-4a26-a98d-416471c1e3ad)
+
 
 CPI (Cycles Per Instruction): 1 <br/>
 Clock period: IF_time + ID_time + EX_time + MEM_time + WB_time
