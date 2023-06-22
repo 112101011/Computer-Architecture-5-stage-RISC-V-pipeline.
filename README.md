@@ -27,6 +27,23 @@ Suppose pipelining is allowed then: <br/>
 
 From the above pictures we can clearly see the advantage of pipelining in using the resources effeciently and thereby consuming less time. <br/>
 
+### Features of this data path:
+
+Our main motive of this project is to come close as much as possible to the actual RISC-V pipelined data path. The following features are included in this data path:
+1) Pipelined data path: which allows multiple subtasks to be carried out simultaneously  using independent resources.
+2) Important components of Data path:
+   a) 20 32-bit instruction cache. (can be increased based on requirements)
+   b) Program Counter.
+   c) Instruction decoder. (R-type, I-type, S-type)
+   d) 32 64-bit register file.
+   e) Immediate Generator.
+   f) 64-bit ALU(addition, subtraction, multiplication)
+   g) 20 64-bit Data cache. (can be increase based on requirements)
+   h) Pipeline registers(IF/ID, ID/EX, EX/MEM, MEM/WB)
+   i) Control Unit. (Generate control signals)
+   j) Forwarding unit.
+
+
 ###  5-stages for implementing instruction(in general):
 Similar to MIPS architecture there are 5 stages in RISC-V ISA(Instruction Set Architecture) :
 1) IF : Instruction fetch from Instruction cache.
