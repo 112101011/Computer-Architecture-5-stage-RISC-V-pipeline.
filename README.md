@@ -123,7 +123,15 @@ For operand B, the similar conditions are checked as above but additionally maki
 
 Initially 12 instructions are written in ins-cache including two stalls. Data values 45, 20, -20 are written at the locations 0, 1, 2 of data cache. We can observe that in total 5 clock cycles are taken to completely run a instruction, ld – the critical instruction requires all the 5-stages completely. <br/>
 
-![pic 13](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/44b65d70-a9f3-4711-8de7-29edd18201b5)
+The forwarding lines are indicated in red. As there is full forwarding there is no requirement of STALLs in first 6 instructions. In the below picture instructions and its computation is shown along with full forwarding:
+![pic 13](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/44b65d70-a9f3-4711-8de7-29edd18201b5) <br/>
+
+Including 2 stalls and 10 instructions on total we can say that 12 instructions are executed. Here stalls are implemented by add x0, x0, x0. <br/>
+Total Number of cycles for this 10 instructions(2-stalls) = 16 <br/>
+Actual Number of instructions = 10 <br/>
+Stalls = 2 <br/>
+[average CPI]: CPI = (16) / (10) = 1.6 (2-stalls are not considered as instructions) <br/>
+The CPI is not 1(ideal) because some time  is required to get full pipelining. <br/>
 
 
 ## Timing diagram:
