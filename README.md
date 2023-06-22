@@ -62,11 +62,47 @@ Clock period:  max{IF_time, ID_time, EX_time, MEM_time,  WB_time}
 
 ### Challenges for pipelining
 
+## Instruction formats in RISC-V:
+
+R-format: <br/>
+![pic 9](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/7c63a033-1766-4809-b040-a53d1f9574e1)
+
+I-format: <br/>
+![pic 10](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/4c37530b-f82d-4cc4-9665-83eac1c5c18b)
+
+S-format: <br/>
+![pic11](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/82e9c3bd-70d8-4a8a-8719-580318a9378e)
+
 ## Datapath:
 
-## Pictorial view of pipelined datapath:
 ![pic6](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/8961486e-6f1c-4cd8-9818-44850725064e)
+Note: Red wires depict the input and output of forwarding logic. The number in orange color boxes depict the number of bits. 
 
+### Instruction cache and data cache:
+
+### Register file:
+There are 32 64-bit registes in register file of RISC-V architecture.
+
+|registers| purpose |
+|---------|---------|
+X0|The constant value 0
+X1 | return address
+X2 | stack pointer
+X3 | global pointer
+X4 | thread pointer
+X5 - X7, X28 - X31 | temporaries
+X8 | frame pointer
+X9, X18 - X27 | saved registers
+X10 - X11 | function arguments/results
+X12 - X17 | function arguments
+
+### Role of immediate generator:
+![pic8](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/b7e53f0f-bb85-441d-a6b5-cac13caf92f4)
+This imm generator performs sign extension of 12-bit immediate to 64-bit immediate. The reason for extension is that other registers in register file are 64-bit and the ALU is designed for 64-bits. 
+
+### Role of 64-bit ALU:
+In the data path designed here the ALU is designed for 64-bits and it performs addition and subtraction by carry look ahead adder logic and multiplication by booth’s algorithm. It gives one output of 64-bits size. <br/>
+![pic7](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/c68262dc-7ae2-431e-9220-76ceca6e3cb4)
 
 ## Forwarding unit
 
@@ -85,7 +121,15 @@ For operand B, the similar conditions are checked as above but additionally maki
 
 ## Writing test bench
 
-## Timing diagrams 
+Initially 12 instructions are written in ins-cache including two stalls. Data values 45, 20, -20 are written at the locations 0, 1, 2 of data cache. We can observe that in total 5 clock cycles are taken to completely run a instruction, ld – the critical instruction requires all the 5-stages completely. <br/>
+
+![pic 13](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/44b65d70-a9f3-4711-8de7-29edd18201b5)
+
+
+## Timing diagram:
+![pic19](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/388b7eb7-e92c-45b0-a33a-7ac61d258f18) <br/>
+The register  values in each cycle can be observed from the above timing diagram. pipeline_IF_ID, pipeline_ID_EX, pipeline_EX_MEM, pipeline_MEM_WB, represents the pipeline register values. data_written_in_regfile represents the data written back in the register file. data_written_in_data_mem represents the data written in the data cache. data_written_in_ins_mem represents the data written in the ins cache. <br/>
+
 
 ## Power consumption and time delay reports by vivado
 
