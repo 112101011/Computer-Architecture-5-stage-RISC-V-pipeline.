@@ -1,3 +1,4 @@
+
 # 5-stage-RISC-V-pipeline.
 
 ## Problem statement
@@ -21,6 +22,8 @@ Let us consider a real life example of manufacturing a car, let the steps requir
 let each sub-task takes 20 minutes. <br/>
 
 Suppose at each time unit, only one sub-task can be performed then: <br/>
+
+
 ![pic3](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/cda13893-9402-4668-bc74-d8107a5354fa)
 Suppose pipelining is allowed then: <br/>
 ![pic4](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/a99cff10-592f-4896-a902-e6e63fb4d924)
