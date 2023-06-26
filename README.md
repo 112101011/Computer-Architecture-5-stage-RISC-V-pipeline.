@@ -76,19 +76,19 @@ Clock period:  max{IF_time, ID_time, EX_time, MEM_time,  WB_time}
    Figure : ID , WB stages take less time(register operations) than other stages: <br/>
    ![screen](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/9a33059e-ee2b-4042-a3b6-b0d8973c4141)
 
-2) Hazards:
+2) Hazards: <br/>
    a) Structural Hazards <br/>
-      Conflict for use of resource, IF and MEM stage requires memory or cache element but if there is only one cache then a requirement of bubble is happening, so this can be avoided by giving two different caches Instruction-cache and Data-cache.
-   b) Data Hazards
-   An instruction depends on completion of previous instruction, this type of issue is known as Data dependencies.
-   Eg: 
-   	I1: addi x9, x10, 2
-    	I2: addi x11, x9, x4
-    	I2 depeneds on I1 because this is Write after read dependency
+      Conflict for use of resource, IF and MEM stage requires memory or cache element but if there is only one cache then a requirement of bubble is happening, so this can be avoided by giving two different caches Instruction-cache and Data-cache. <br/>
+   b) Data Hazards <br/>
+   An instruction depends on completion of previous instruction, this type of issue is known as Data dependencies. <br/>
+   Eg: <br>
+   	I1: addi x9, x10, 2 <br/>
+    	I2: addi x11, x9, x4 <br/>
+    	I2 depeneds on I1 because this is Write after read dependency  <br/>
 
  	Figure : Bubbles needed (no forwarding) due to data dependency: <br/>
    	![pic 20](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/3aac46e5-9446-46ec-8e28-f27f7efd3fd0)
-   	In the above case, WB is done in the first half of cycle and then ID.
+   	In the above case, WB is done in the first half of cycle and then ID. <br/>
    
     	Figure : Forwarding (aka bypassing) the above data dependency: <br/>
 	![pic 21](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/92ba5672-2de6-4cb8-a23f-8a8cd6ec8c37)
