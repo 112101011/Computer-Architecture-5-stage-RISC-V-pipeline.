@@ -2,6 +2,10 @@
 # 5-stage-RISC-V-pipeline.
 
 ## Problem statement
+Design a 5 stage RISC-V pipelined data path with the following features <br/>
+1) Store data and access data.
+2) Perform add, sub, mul, addi arthimetic operations.
+3) Apply forwarding logic to decrease number of stalls as much as possible thereby increasing performance.
 
 ## Introduction to RISC-V architecture:
 RISC-V is an open-source instruction set architecture (ISA) designed for computer processors. It stands for "Reduced Instruction Set Computer - Five." The RISC-V architecture is based on the concept of reduced instruction set computing, which emphasizes simplicity and efficiency by using a smaller set of instructions.
