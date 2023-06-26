@@ -65,6 +65,40 @@ Clock period:  max{IF_time, ID_time, EX_time, MEM_time,  WB_time}
 
 ### Challenges for pipelining
 
+1) Speed up issues when unbalanced.
+   If the time taken by all stages is same (that is balanced) then we can say that (𝑡ⅈ𝑚ⅇ)_𝑝𝑖𝑝𝑒𝑙𝑖𝑛𝑒𝑑 =  (𝑡ⅈ𝑚ⅇ)_(𝑛𝑜𝑛−𝑝𝑖𝑝𝑒𝑙𝑖𝑛𝑒𝑑)/(Number of stages) <br/>
+   But in general the stages are not balanced, so we do not get the ideal speed up as written in the above formulae. The throughput will be less than expected. But the throughput of pipelined datapath will be far better than non-pipelined datapath. <br/>
+   Eg: if the time needed for ID stage is less than EX stage, when these both stages are executing in the same clock cycle, ID stage should wait for getting next computation until the EX stage gets completed. <br/>
+   Figure : ID , WB stages take less time(register operations) than other stages: <br/>
+   ![screen](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/9a33059e-ee2b-4042-a3b6-b0d8973c4141)
+
+2) Hazards:
+   a) Structural Hazards <br/>
+      Conflict for use of resource, IF and MEM stage requires memory or cache element but if there is only one cache then a requirement of bubble is happening, so this can be avoided by giving two different caches Instruction-cache and Data-cache.
+   b) Data Hazards
+   An instruction depends on completion of previous instruction, this type of issue is known as Data dependencies.
+   Eg: 
+   	I1: addi x9, x10, 2
+    	I2: addi x11, x9, x4
+    	I2 depeneds on I1 because this is Write after read dependency
+
+ 	Figure : Bubbles needed (no forwarding) due to data dependency: <br/>
+   	![pic 20](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/3aac46e5-9446-46ec-8e28-f27f7efd3fd0)
+   	In the above case, WB is done in the first half of cycle and then ID.
+   
+    	Figure : Forwarding (aka bypassing) the above data dependency: <br/>
+	![pic 21](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/92ba5672-2de6-4cb8-a23f-8a8cd6ec8c37)
+
+   	Not all data dependencies can be avoided by forwarding, if the instruction is ld instruction and next instruction is reading the register then there is a need of one bubble even when there is forwarding.
+
+   c) Control Hazards.
+   
+   When a instruction is branch instruction the next instruction depends on the result of branch instruction.<br/>
+   So there are many methods for overcoming this some of them are <br/>
+   1) Computing branch at the ID stage (this needs one bubble)
+   2) branch predictors ( dynamic and static branch predictors).
+   Handling control hazards is out of the scope of this project.
+
 ## Goal:
 Use hardware lying as much as possible.(running instructions in parallel though there is no actual parallel hardware)
 1) Minimize the number of stalls
