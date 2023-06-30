@@ -7,6 +7,9 @@ Design a 5 stage RISC-V pipelined data path with the following features <br/>
 2) Perform add, sub, mul, addi arthimetic operations.
 3) Apply forwarding logic to decrease number of stalls as much as possible thereby increasing performance.
 
+Opcodes of addition, subtraction and multiplication: <br/>
+![opcodes](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/0e2d9694-9427-414e-85e7-c1bde46fbc9d)
+
 ## Introduction to RISC-V architecture:
 RISC-V is an open-source instruction set architecture (ISA) designed for computer processors. It stands for "Reduced Instruction Set Computer - Five." The RISC-V architecture is based on the concept of reduced instruction set computing, which emphasizes simplicity and efficiency by using a smaller set of instructions.
 More specifically, RISC-V has been used in cloud computing, servers, and embedded applications.
@@ -183,6 +186,18 @@ The forwarding unit decides the operands to be sent to the ALU. The below condit
 
 For operand B, the similar conditions are checked as above but additionally making sure that immediate is passed whenever instruction ID/EX is not R-type. As the conditions for passing B is complicated than A that can be verified from the Verilog code.
 
+### Control signals (control unit):
+
+|S.No|Signal|Role of the signal|
+|--|--|--|
+|1| Register write | If register write signal is 1 the data will be written in the register file. Otherwise data is not written in the register file.|
+|2| Mem_to_register | If mem_to_register signal is 1 the data read from the data cache (ld) will be write data value for register file. Otherwise alu_result will be the write data value for register file. |
+|3|Mem_read|If mem_read signal is 1, data value is read from the data cache using the address otherwise the data is not read from the data cache.|
+|4|Mem_write|If mem_write signal is 1, data value is written in the data cache else the data is not written in the data cache.|
+|5|PC_source| PC_source will be 1 when the instruction is branch instruction to select PC + 2 X imm Otherwise PC + 4 will be the updated program counter.|
+|6|ALU_source| This is execution signal, this depends on opcode and funct7 values.If instruction is R, based on funct7 value the type of operation like add, sub or mul is determined. And the operands will be data from rs1 and rs2.For other instructions like I format like addi, ld and S-type like sd only addition is needed to performed in execution stage, the addition involves immediate. One of the operands will be immediate.|
+
+
 ## Descirption of verilog code of data path
 
 ## Writing test bench
@@ -212,7 +227,15 @@ Data-cache: <br/>
 The register  values in each cycle can be observed from the above timing diagram. pipeline_IF_ID, pipeline_ID_EX, pipeline_EX_MEM, pipeline_MEM_WB, represents the pipeline register values. data_written_in_regfile represents the data written back in the register file. data_written_in_data_mem represents the data written in the data cache. data_written_in_ins_mem represents the data written in the ins cache. <br/>
 
 
-## Power consumption and time delay reports from vivado
+## Power consumption and time delay reports from vivado:
+
+![paths](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/a71e6b2c-ed72-4a49-b284-e7574d3d4b2f)
+
+![time](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/2d48b098-e730-42d0-b545-fd7b23d6d575)
+Total critical path delay: 120.448 units. <br/>
+<br/>
+![power](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/ec0df7b6-6841-4084-8c09-8d4cdbdc40dd)
+Maximum Power Consumption is 83.762W.
 
 ## Further scope
 1) Adding additional hardware at ID stage for branch instructions to reduce the number of stalls for control Hazards (or) maintaining a branch predictor static or dynamic branch predictor.
