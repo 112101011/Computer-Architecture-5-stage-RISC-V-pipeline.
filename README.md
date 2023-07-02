@@ -199,13 +199,32 @@ For operand B, the similar conditions are checked as above but additionally maki
 
 
 ## Descirption of verilog code of data path
+In the data path, the 4 pipeline registers are named as:
+1)	reg [95:0]Pipeline_IF_ID
+2)	reg [289:0]pipeline_ID_EX 
+3)	 reg [202:0]pipeline_EX_MEM
+4)	reg [134:0]pipeline_MEM_WB
 
-
+•	The instruction cache is of 20 32-bit register (instruction_memory) <br/>
+•	The data cache is of 20 64-bit registers. (data_memory)<br/>
+•	The register file is of 32 64-bit registers. (register_file)<br/>
+•	A and B are operands which are to be passed to ALU. B1 is complement of B <br/>
+•	The carry look ahead logic is used to add and subtract two 64-bit numbers which is efficient in time when compared to ripple carry adder.<br/>
+•	Booth’s algorithm is used to multiply two operands.<br/>
+•	PC stands for program counter. Next PC value depends on the PC_source. With a help of 2:1 MUX and PC_source as select line and PC + 4 and PC + 2 X imm as data lines. <br/>
+•	data_written_in_regfile indicates data which is written in register file in the timing diagram.<br/>
+•	data_written_in_data_mem indicates the data written in the data cache.<br/>
+•	Data_written_in_ins_mem indicates the instruction written in instruction cache.<br/>
+•	When instruction_memory_cycle is ON instruction are written in instruction cache.<br/>
+•	When data_memory_cycle is ON data is written in data cache at a particular data location.<br/>
+•	data_memory_cycle and instruction_memory_cycle signals are used initially to write some instruction in instruction cache and to write some data values in data cache.<br/>
 
 ## Writing test bench
+	The test bench involves all operation done by the ALU, i.e addition, multiplication and subtraction.<br/>
+	The test bench is written to cover instructions add, addi, sub, mul, ld, sd.<br/>
+	Full forwarding is done so that correct values are written and correct values are read<br/>
 
 Initially 12 instructions are written in ins-cache including two stalls. Data values 45, 20, -20 are written at the locations 0, 1, 2 of data cache. <br/>
-
 After writing the instructions in the instruction cache and data values in data cache the scenario is: <br/>
 Instruction Cache: <br/>
 ![Picture1](https://github.com/112101011/5-stage-RISC-V-pipeline./assets/111628378/35b7198a-5ca6-45ce-abf3-a2b1a5201259) <br/>
