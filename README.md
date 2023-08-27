@@ -102,8 +102,8 @@ Clock period:  max{IF_time, ID_time, EX_time, MEM_time,  WB_time}
    
    When a instruction is branch instruction the next instruction depends on the result of branch instruction.<br/>
    So there are many methods for overcoming this some of them are <br/>
-   1) Computing branch at the ID stage (this needs one bubble)
-   2) branch predictors ( dynamic and static branch predictors).
+   1) Computing branch at the ID stage (this needs one bubble).
+   2) branch predictors ( dynamic and static branch predictors). <br/>
    Handling control hazards is out of the scope of this project.
 
 ## Goal:
